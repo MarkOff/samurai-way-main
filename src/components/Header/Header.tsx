@@ -1,10 +1,15 @@
 import React from "react";
-import h from './Header.module.css';
+import s from './Header.module.css';
 
-const Header = () => {
+type HeaderType = {
+    logo: string
+    alt: string
+}
+
+const Header = (props:HeaderType) => {
     return (
-        <header className={h.header}>
-            <img src='https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sneakers-store-logo-design-template-d6f32224d0dcd1ad1a9735adf1666ca5_screen.jpg?ts=1654441189' alt= 'avatar'/>
+        <header className={s.header}>
+            <img src={props.logo} alt={props.alt}/>
         </header>
     );
 }

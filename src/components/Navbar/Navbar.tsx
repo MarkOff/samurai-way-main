@@ -1,23 +1,33 @@
-import React from "react";
-import n from './Navbar.module.css'
+import React from 'react';
+import s from './Navbar.module.css';
+import {NavLink} from 'react-router-dom';
 
-const Navbar = () => {
+
+type NavbarType = {
+    profile: string
+    message: string
+    news: string
+    music: string
+    setting: string
+}
+
+const Navbar = (props: NavbarType) => {
     return (
-        <nav className={n.nav}>
-            <div className = {`${n.item} ${n.active}`}  >
-                <a>Profile</a>
+        <nav className={s.nav}>
+            <div className={s.item}>
+                <NavLink to='/profile' activeClassName={s.activeLink}>{props.profile}</NavLink>
             </div>
-            <div className = {n.item}>
-                <a>Message</a>
+            <div className={s.item}>
+                <NavLink to='/dialogs' activeClassName={s.activeLink}>{props.message}</NavLink>
             </div>
-            <div className = {n.item}>
-                <a>News</a>
+            <div className={s.item}>
+                <NavLink to='/news' activeClassName={s.activeLink}>{props.news}</NavLink>
             </div>
-            <div className = {n.item}>
-                <a>Music</a>
+            <div className={s.item}>
+                <NavLink to='/music' activeClassName={s.activeLink}>{props.music}</NavLink>
             </div>
-            <div className = {n.item}>
-                <a>Settings</a>
+            <div className={s.item}>
+                <NavLink to='/settings' activeClassName={s.activeLink}>{props.setting}</NavLink>
             </div>
         </nav>
     );
